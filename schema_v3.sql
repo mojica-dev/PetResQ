@@ -1,0 +1,15 @@
+CREATE TABLE adoptions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  pet_id INT NOT NULL,
+  user_id INT NOT NULL,
+  full_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone VARCHAR(50),
+  job VARCHAR(255),
+  reason TEXT,
+  schedule_date DATE,
+  status VARCHAR(50) NOT NULL DEFAULT Pending,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (pet_id) REFERENCES pets(id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
